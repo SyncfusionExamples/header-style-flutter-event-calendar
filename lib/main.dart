@@ -10,7 +10,15 @@ class HeaderStyleViewChanged extends StatefulWidget {
 }
 
 class HeaderStyle extends State<HeaderStyleViewChanged> {
-  CalendarHeaderStyle _headerStyle;
+  CalendarHeaderStyle? _headerStyle = CalendarHeaderStyle(
+      textAlign: TextAlign.center,
+      backgroundColor: Colors.purple,
+      textStyle: TextStyle(
+          fontSize: 25,
+          fontStyle: FontStyle.normal,
+          letterSpacing: 5,
+          color: Colors.orange,
+          fontWeight: FontWeight.w500));
 
   @override
   void initState() {
@@ -26,7 +34,7 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
             child: SfCalendar(
               view: CalendarView.month,
               onViewChanged: viewChanged,
-              headerStyle: _headerStyle,
+              headerStyle: _headerStyle!,
             ),
           ),
 
@@ -35,12 +43,11 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
   }
 
   void viewChanged(ViewChangedDetails viewChangedDetails) {
-    SchedulerBinding.instance.addPostFrameCallback((duration) {
+    SchedulerBinding.instance!.addPostFrameCallback((duration) {
       var midDate = viewChangedDetails
           .visibleDates[viewChangedDetails.visibleDates.length ~/ 2];
       setState(() {
-      if(midDate.month %2==0)
-        {
+        if (midDate.month % 2 == 0) {
           _headerStyle = CalendarHeaderStyle(
               textAlign: TextAlign.center,
               backgroundColor: Colors.lightGreen,
@@ -50,7 +57,7 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
                   letterSpacing: 5,
                   color: Colors.red,
                   fontWeight: FontWeight.w500));
-        } else if (midDate.month %2 != 0) {
+        } else if (midDate.month % 2 != 0) {
           _headerStyle = CalendarHeaderStyle(
               textAlign: TextAlign.center,
               backgroundColor: Colors.purple,
@@ -65,3 +72,4 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
     });
   }
 }
+
