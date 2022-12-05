@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-void main() => runApp(HeaderStyleViewChanged());
+void main() => runApp(const HeaderStyleViewChanged());
 
 class HeaderStyleViewChanged extends StatefulWidget {
+  const HeaderStyleViewChanged({super.key});
+
   @override
   HeaderStyle createState() => HeaderStyle();
 }
 
 class HeaderStyle extends State<HeaderStyleViewChanged> {
-  CalendarHeaderStyle? _headerStyle = CalendarHeaderStyle(
+  CalendarHeaderStyle? _headerStyle = const CalendarHeaderStyle(
       textAlign: TextAlign.center,
       backgroundColor: Colors.purple,
       textStyle: TextStyle(
@@ -48,7 +50,7 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
           .visibleDates[viewChangedDetails.visibleDates.length ~/ 2];
       setState(() {
         if (midDate.month % 2 == 0) {
-          _headerStyle = CalendarHeaderStyle(
+          _headerStyle = const CalendarHeaderStyle(
               textAlign: TextAlign.center,
               backgroundColor: Colors.lightGreen,
               textStyle: TextStyle(
@@ -58,7 +60,7 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
                   color: Colors.red,
                   fontWeight: FontWeight.w500));
         } else if (midDate.month % 2 != 0) {
-          _headerStyle = CalendarHeaderStyle(
+          _headerStyle = const CalendarHeaderStyle(
               textAlign: TextAlign.center,
               backgroundColor: Colors.purple,
               textStyle: TextStyle(
@@ -72,4 +74,3 @@ class HeaderStyle extends State<HeaderStyleViewChanged> {
     });
   }
 }
-
