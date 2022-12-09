@@ -6,6 +6,8 @@ You can style the header in the Flutter event calendar by using the [headerStyle
 
 In this sample, the background color, textStyle, and textAlignement have been customized using the properties such as backgroundColor, textStyle, and textAlign of the headerStyle property in the calendar.
 
+![HeaderAppearance](https://user-images.githubusercontent.com/46158936/206628203-69c4b327-1aec-475a-a0dd-caf10d702760.gif)
+
 For more details , Refer to our UG Documentation [Header appearance](https://help.syncfusion.com/flutter/calendar/headers#header-appearance).
 
 ## Requirements to run the demo
